@@ -1,0 +1,11 @@
+.students {
+  margin-left: 30px;
+  padding-top: 50px;
+  font-size: 45px;
+
+  @media screen and (max-width: 375px) {
+    margin-left: 15px;
+    padding-top: 30px;
+    font-size: 30px;
+  }
+}

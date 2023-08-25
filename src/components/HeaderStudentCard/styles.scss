@@ -1,0 +1,23 @@
+.students-list-header {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  margin-left: 110px;
+  gap: 128px;
+
+  .student-item {
+    display: flex;
+    justify-content: space-between;
+    overflow: auto;
+    flex-direction: column;
+    font-weight: 300;
+  }
+
+  .student-item11 {
+    font-size: 20px;
+  }
+
+  @media screen and (max-width: 375px) {
+    display: none;
+  }
+}
