@@ -1,8 +1,8 @@
-import React from "react";
+import React, { FC } from "react";
 import circle from "../../images/circle.png";
 import "./styles.scss";
 
-const Header = () => {
+const Header: FC = () => {
   return (
     <>
       <div className="header">
