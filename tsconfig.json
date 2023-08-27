@@ -10,7 +10,8 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "src/components/StudentDeleteButton/index.jsx"
+    "src/components/StudentDeleteButton/index.jsx",
+    "src/components/StudentItem/index.jsx"
   ],
   "exclude": ["node_modules"]
 }

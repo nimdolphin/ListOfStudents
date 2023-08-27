@@ -1,10 +1,32 @@
-import React from "react";
+import React, { FC } from "react";
 import StudentDeleteButton from "../StudentDeleteButton";
 import ratingLogo from "../../images/ratingLogo.png";
+
 import "./styles.scss";
 
-const StudentItem = ({ filteredStudents, setData, sortOption }) => {
-  const studentAge = (birth) => {
+type Student = {
+  id: number;
+  name: string;
+  specialty: string;
+  avatar: string;
+  group: string;
+  birthday: string;
+  rating: number;
+  color: string;
+};
+
+type StudentItemProps = {
+  filteredStudents: Student[];
+  setData: React.Dispatch<React.SetStateAction<Student[]>>;
+  sortOption: string;
+};
+
+const StudentItem: FC<StudentItemProps> = ({
+  filteredStudents,
+  setData,
+  sortOption,
+}) => {
+  const studentAge = (birth: string) => {
     const today = new Date();
     const birthdate = new Date(birth);
     let age = today.getFullYear() - birthdate.getFullYear();
@@ -15,15 +37,15 @@ const StudentItem = ({ filteredStudents, setData, sortOption }) => {
     return age;
   };
 
-  const sortedData = filteredStudents.sort((a, b) => {
+  const sortedData = filteredStudents.sort((a: any, b: any) => {
     if (sortOption === "name-a-ya") {
       return a.name.localeCompare(b.name);
     } else if (sortOption === "name-ya-a") {
       return b.name.localeCompare(a.name);
     } else if (sortOption === "oldest") {
-      return new Date(a.birthday) - new Date(b.birthday);
+      return new Date(a.birthday).getTime() - new Date(b.birthday).getTime();
     } else if (sortOption === "youngest") {
-      return new Date(b.birthday) - new Date(a.birthday);
+      return new Date(b.birthday).getTime() - new Date(a.birthday).getTime();
     } else if (sortOption === "high-rating") {
       return b.rating - a.rating;
     } else if (sortOption === "lower-rating") {

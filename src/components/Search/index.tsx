@@ -7,7 +7,14 @@ import StudentSearch from "../StudentSearch";
 import "./styles.scss";
 
 interface Student {
+  id: number;
   name: string;
+  specialty: string;
+  avatar: string;
+  group: string;
+  birthday: string;
+  rating: number;
+  color: string;
 }
 
 interface SearchProps {
