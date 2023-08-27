@@ -1,7 +1,7 @@
-import React from "react";
+import React, { FC } from "react";
 import "./styles.scss";
 
-const HeaderStudentCard = () => {
+const HeaderStudentCard: FC = () => {
   return (
     <div className="students-list-header">
       <div className="student-item11">
