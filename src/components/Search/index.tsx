@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import HeaderStudentCard from "../HeaderStudentCard";
 import StudentItem from "../StudentItem";
 import DropdownList from "../DropdownList";
@@ -6,7 +6,20 @@ import StudentSearch from "../StudentSearch";
 
 import "./styles.scss";
 
-const Search = ({
+interface Student {
+  name: string;
+}
+
+interface SearchProps {
+  data: Student[];
+  searchName: string;
+  setSearchText: React.Dispatch<React.SetStateAction<string>>;
+  setData: React.Dispatch<React.SetStateAction<Student[]>>;
+  sortOption: string;
+  setSortOption: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const Search: FC<SearchProps> = ({
   data,
   searchName,
   setSearchText,
