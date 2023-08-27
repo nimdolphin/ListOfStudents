@@ -1,7 +1,7 @@
-import React from "react";
+import React, { FC } from "react";
 import "./styles.scss";
 
-const Title = () => {
+const Title: FC = () => {
   return (
     <div>
       <h1 className="students">Студенты</h1>
