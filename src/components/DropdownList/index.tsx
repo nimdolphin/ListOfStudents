@@ -1,10 +1,17 @@
-import React from "react";
+import React, { FC } from "react";
 import { styled } from "@mui/system";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
+import { SelectChangeEvent } from "@mui/material";
+
 import CustomDropdownIcon from "../CustomDropdownIcon";
 
 import "./styles.scss";
+
+interface DropdownListProps {
+  sortOption: string;
+  setSortOption: React.Dispatch<React.SetStateAction<string>>;
+}
 
 const CustomSelect = styled(Select)({
   width: "250px",
@@ -38,9 +45,9 @@ const CustomMenuItem = styled(MenuItem)({
   },
 });
 
-const DropdownList = ({ sortOption, setSortOption }) => {
-  const handleDropdownList = (event) => {
-    setSortOption(event.target.value);
+const DropdownList: FC<DropdownListProps> = ({ sortOption, setSortOption }) => {
+  const handleDropdownList = (event: SelectChangeEvent<unknown>) => {
+    setSortOption(event.target.value as string);
   };
 
   return (
