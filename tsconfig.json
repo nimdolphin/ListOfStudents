@@ -7,6 +7,10 @@
     "esModuleInterop": true
   },
   "files": ["custom.d.ts"],
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/components/StudentDeleteButton/index.jsx"
+  ],
   "exclude": ["node_modules"]
 }

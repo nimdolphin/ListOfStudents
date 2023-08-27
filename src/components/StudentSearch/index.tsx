@@ -1,8 +1,17 @@
-import React from "react";
+import React, { FC, ChangeEvent } from "react";
+
 import "./styles.scss";
 
-const StudentSearch = ({ searchName, setSearchText }) => {
-  const handleSearchChange = (event) => {
+interface StudentSearchProps {
+  searchName: string;
+  setSearchText: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const StudentSearch: FC<StudentSearchProps> = ({
+  searchName,
+  setSearchText,
+}) => {
+  const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchText(event.target.value);
   };
 
