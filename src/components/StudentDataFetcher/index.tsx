@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, FC } from "react";
 import Search from "../Search";
 
 import "./styles.scss";
 
-const StudentDataFetcher = () => {
-  const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
-  const [searchName, setSearchText] = useState("");
-  const [sortOption, setSortOption] = useState("name-a-ya");
+const StudentDataFetcher: FC = () => {
+  const [data, setData] = useState<any[]>([]);
+  const [error, setError] = useState<string | null>(null);
+  const [searchName, setSearchText] = useState<string>("");
+  const [sortOption, setSortOption] = useState<string>("name-a-ya");
 
   useEffect(() => {
     const fetchData = () => {
