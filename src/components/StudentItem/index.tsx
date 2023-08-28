@@ -37,18 +37,27 @@ const StudentItem: FC<StudentItemProps> = ({
     return age;
   };
 
+  const enum Positions {
+    NameA = "name-a-ya",
+    NameYa = "name-ya-a",
+    Oldest = "oldest",
+    Youngest = "youngest",
+    HighRating = "high-rating",
+    LowerRating = "lower-rating",
+  }
+
   const sortedData = filteredStudents.sort((a: any, b: any) => {
-    if (sortOption === "name-a-ya") {
+    if (sortOption === Positions.NameA) {
       return a.name.localeCompare(b.name);
-    } else if (sortOption === "name-ya-a") {
+    } else if (sortOption === Positions.NameYa) {
       return b.name.localeCompare(a.name);
-    } else if (sortOption === "oldest") {
+    } else if (sortOption === Positions.Oldest) {
       return new Date(a.birthday).getTime() - new Date(b.birthday).getTime();
-    } else if (sortOption === "youngest") {
+    } else if (sortOption === Positions.Youngest) {
       return new Date(b.birthday).getTime() - new Date(a.birthday).getTime();
-    } else if (sortOption === "high-rating") {
+    } else if (sortOption === Positions.HighRating) {
       return b.rating - a.rating;
-    } else if (sortOption === "lower-rating") {
+    } else if (sortOption === Positions.LowerRating) {
       return a.rating - b.rating;
     } else {
       return 0;
