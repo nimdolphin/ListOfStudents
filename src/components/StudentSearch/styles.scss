@@ -1,0 +1,41 @@
+.search-container {
+  position: relative;
+  margin-bottom: 20px;
+
+  .logo-icon {
+    width: 20px;
+    height: 20px;
+    background-image: url('../../images/search.png');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  input[type="text"] {
+    padding-left: 30px;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 3px; 
+    width: 940px;
+    outline: none;
+    font-size: 20px;
+  }
+
+  @media screen and (max-width: 375px) {
+    margin-left: -50px;
+    padding-right: 20px;
+
+    input[type="text"] {
+      background-color: #fff;
+      width: 180px;
+      padding: 10px 22px; 
+      padding-left: 37px;
+      border-radius: 3px; 
+
+    }
+  }
+}

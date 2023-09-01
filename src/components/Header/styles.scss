@@ -1,0 +1,40 @@
+.header {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #fff;
+
+  .logo {
+    margin-left: 70px;
+    margin-right: 20px;
+  }
+
+  .logo-students {
+    .blue {
+      color: #49C2E8;
+    }
+  }
+
+  @media screen and (max-width: 375px) {
+    background-color: #fff;
+
+    .logo {
+      margin-left: 30px;
+    }
+
+    .blue {
+      display: none;
+    }
+
+    .black {
+      display: none;
+    }
+
+    &::after {
+      content: "STUDENTS";
+      font-size: 20px;
+      font-weight: 700;
+    }
+  }
+}
