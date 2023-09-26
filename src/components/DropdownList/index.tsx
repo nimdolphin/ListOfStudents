@@ -4,7 +4,7 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import { SelectChangeEvent } from "@mui/material";
 
-import CustomDropdownIcon from "../CustomDropdownIcon";
+import dropdown from "../../images/dropdown.png";
 
 import "./styles.scss";
 
@@ -56,7 +56,9 @@ const DropdownList: FC<DropdownListProps> = ({ sortOption, setSortOption }) => {
         className="select-list"
         onChange={handleDropdownList}
         value={sortOption}
-        IconComponent={CustomDropdownIcon}
+        IconComponent={() => (
+          <img src={dropdown} className="drop-img" alt="logo-drop" />
+        )}
       >
         <CustomMenuItem value="name-a-ya">Имя А-Я</CustomMenuItem>
         <CustomMenuItem value="name-ya-a">Имя Я-А</CustomMenuItem>
