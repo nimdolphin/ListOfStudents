@@ -1,7 +1,7 @@
 import React, { FC } from "react";
-import Header from "./components/Header";
-import StudentDataFetcher from "./components/StudentDataFetcher";
-import Title from "./components/Title";
+import Header from "components/Header";
+import StudentDataFetcher from "components/StudentDataFetcher";
+import Title from "components/Title";
 
 import "./App.scss";
 
