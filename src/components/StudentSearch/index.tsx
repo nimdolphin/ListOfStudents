@@ -1,11 +1,7 @@
 import React, { FC, ChangeEvent } from "react";
+import { StudentSearchProps } from "./types";
 
 import "./styles.scss";
-
-interface StudentSearchProps {
-  searchName: string;
-  setSearchText: React.Dispatch<React.SetStateAction<string>>;
-}
 
 const StudentSearch: FC<StudentSearchProps> = ({
   searchName,

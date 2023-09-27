@@ -3,28 +3,9 @@ import HeaderStudentCard from "../HeaderStudentCard";
 import StudentItem from "../StudentItem";
 import DropdownList from "../DropdownList";
 import StudentSearch from "../StudentSearch";
+import { SearchProps } from "./types";
 
 import "./styles.scss";
-
-interface Student {
-  id: number;
-  name: string;
-  specialty: string;
-  avatar: string;
-  group: string;
-  birthday: string;
-  rating: number;
-  color: string;
-}
-
-interface SearchProps {
-  data: Student[];
-  searchName: string;
-  setSearchText: React.Dispatch<React.SetStateAction<string>>;
-  setData: React.Dispatch<React.SetStateAction<Student[]>>;
-  sortOption: string;
-  setSortOption: React.Dispatch<React.SetStateAction<string>>;
-}
 
 const Search: FC<SearchProps> = ({
   data,

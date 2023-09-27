@@ -1,24 +1,8 @@
 import React, { FC } from "react";
+import { StudentDeleteButtonProps } from "./types";
 import trash from "../../images/trash.png";
 
 import "./styles.scss";
-
-type Student = {
-  id: number;
-  name: string;
-  specialty: string;
-  avatar: string;
-  group: string;
-  birthday: string;
-  rating: number;
-  color: string;
-};
-
-type StudentDeleteButtonProps = {
-  sortedData: Student[];
-  setData: React.Dispatch<React.SetStateAction<Student[]>>;
-  id: number;
-};
 
 const StudentDeleteButton: FC<StudentDeleteButtonProps> = ({
   sortedData,
