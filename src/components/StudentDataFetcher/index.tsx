@@ -2,12 +2,16 @@ import React, { useEffect, useState, FC } from "react";
 import Search from "../Search";
 
 import "./styles.scss";
+import { Student } from "components/StudentDeleteButton/types";
 
 const StudentDataFetcher: FC = () => {
-  const [data, setData] = useState<any[]>([]);
-  const [error, setError] = useState<string | null>(null);
-  const [searchName, setSearchText] = useState<string>("");
-  const [sortOption, setSortOption] = useState<string>("name-a-ya");
+  const [data, setData] = useState<Student[]>([]);
+
+  const [error, setError] = useState(null);
+
+  const [searchName, setSearchText] = useState("");
+
+  const [sortOption, setSortOption] = useState("name-a-ya");
 
   useEffect(() => {
     const fetchData = () => {
@@ -15,7 +19,7 @@ const StudentDataFetcher: FC = () => {
         fetch(`https://front-assignment-api.2tapp.cc/api/persons`)
           .then((res) => {
             if (!res.ok) {
-              throw Error("Упс, что-то пошло не так...");
+              throw Error("Oops, something went wrong...");
             }
 
             return res.json();

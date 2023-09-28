@@ -2,7 +2,7 @@ import React, { FC } from "react";
 
 import { StudentDeleteButtonProps } from "./types";
 
-import trash from "images/trash.png";
+import trashImg from "images/trashImg.png";
 
 import "./styles.scss";
 
@@ -16,11 +16,9 @@ const StudentDeleteButton: FC<StudentDeleteButtonProps> = (props) => {
   };
 
   return (
-    <>
-      <button className="button" onClick={handleDeleteStudent(id)}>
-        <img className="trash" src={trash} alt="trash" />
-      </button>
-    </>
+    <button className="button" onClick={handleDeleteStudent(id)}>
+      <img className="trash" src={trashImg} alt="trash" />
+    </button>
   );
 };
 
