@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { useEffect, useState, FC } from "react";
 import HeaderStudentCard from "../HeaderStudentCard";
 import StudentItem from "../StudentItem";
 import DropdownList from "../DropdownList";
@@ -6,6 +6,7 @@ import StudentSearch from "../StudentSearch";
 import { SearchProps } from "./types";
 
 import "./styles.scss";
+import { Student } from "components/StudentDeleteButton/types";
 
 const Search: FC<SearchProps> = (props) => {
   const {
@@ -17,9 +18,19 @@ const Search: FC<SearchProps> = (props) => {
     setSortOption,
   } = props;
 
-  const filteredStudents = data.filter((student) =>
-    student.name.toLowerCase().includes(searchName.toLowerCase())
-  );
+  const [filteredStudents, setFilteredStudents] = useState<Student[]>([]);
+
+  useEffect(() => {
+    const filteredStudents = () => {
+      const filtered = data.filter((student) =>
+        student.name
+          .toLocaleLowerCase()
+          .includes(searchName.toLocaleLowerCase())
+      );
+      setFilteredStudents(filtered);
+    };
+    filteredStudents();
+  }, [data, searchName]);
 
   return (
     <>
