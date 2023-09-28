@@ -11,7 +11,7 @@ const StudentItem: FC<StudentItemProps> = ({
   setData,
   sortOption,
 }) => {
-  const studentAge = (birth: string) => {
+  const studentAge = (birth: Date) => {
     const today = new Date();
     const birthdate = new Date(birth);
     let age = today.getFullYear() - birthdate.getFullYear();

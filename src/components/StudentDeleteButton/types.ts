@@ -4,7 +4,7 @@ export type Student = {
   specialty: string;
   avatar: string;
   group: string;
-  birthday: string;
+  birthday: Date;
   rating: number;
   color: string;
 };
