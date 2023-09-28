@@ -43,15 +43,13 @@ const Search: FC<SearchProps> = (props) => {
         <HeaderStudentCard />
       </div>
 
-      <ul className="all-students">
-        {
-          <StudentItem
-            filteredStudents={filteredStudents}
-            setData={setData}
-            sortOption={sortOption}
-          />
-        }
-      </ul>
+      <div className="all-students">
+        <StudentItem
+          filteredStudents={filteredStudents}
+          setData={setData}
+          sortOption={sortOption}
+        />
+      </div>
     </>
   );
 };
