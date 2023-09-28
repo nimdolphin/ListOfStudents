@@ -1,5 +1,7 @@
 import React, { FC } from "react";
-import circle from "../../images/circle.png";
+
+import circle from "images/circle.png";
+
 import "./styles.scss";
 
 const Header: FC = () => (

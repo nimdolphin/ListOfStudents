@@ -1,6 +1,8 @@
 import React, { FC } from "react";
+
 import { StudentDeleteButtonProps } from "./types";
-import trash from "../../images/trash.png";
+
+import trash from "images/trash.png";
 
 import "./styles.scss";
 

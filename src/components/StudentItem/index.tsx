@@ -1,7 +1,8 @@
 import React, { FC } from "react";
 import StudentDeleteButton from "../StudentDeleteButton";
 import { StudentItemProps } from "./types";
-import ratingLogo from "../../images/ratingLogo.png";
+
+import ratingLogo from "images/ratingLogo.png";
 
 import "./styles.scss";
 

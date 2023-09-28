@@ -3,7 +3,8 @@
     "baseUrl": "./src",
     "paths": {
       "components/*": ["components/*"],
-      "libraries/*": ["libraries/*"]
+      "libraries/*": ["libraries/*"],
+      "images/*": ["images/*"]
     },
     "moduleResolution": "node",
     "target": "esnext",

@@ -4,7 +4,7 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import { DropdownListProps, HandleDropdownList } from "./types";
 
-import dropdown from "../../images/dropdown.png";
+import dropdown from "images/dropdown.png";
 
 import "./styles.scss";
 
