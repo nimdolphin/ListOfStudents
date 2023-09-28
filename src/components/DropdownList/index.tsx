@@ -46,23 +46,21 @@ const DropdownList: FC<DropdownListProps> = ({ sortOption, setSortOption }) => {
   };
 
   return (
-    <div className="dropdown">
-      <CustomSelect
-        className="select-list"
-        onChange={handleDropdownList}
-        value={sortOption}
-        IconComponent={() => (
-          <img src={dropdown} className="drop-img" alt="logo-drop" />
-        )}
-      >
-        <CustomMenuItem value="name-a-ya">Имя А-Я</CustomMenuItem>
-        <CustomMenuItem value="name-ya-a">Имя Я-А</CustomMenuItem>
-        <CustomMenuItem value="youngest">Сначала моложе</CustomMenuItem>
-        <CustomMenuItem value="oldest">Сначала старше</CustomMenuItem>
-        <CustomMenuItem value="high-rating">Высокий рейтинг</CustomMenuItem>
-        <CustomMenuItem value="lower-rating">Низкий рейтинг</CustomMenuItem>
-      </CustomSelect>
-    </div>
+    <CustomSelect
+      className="select-list"
+      onChange={handleDropdownList}
+      value={sortOption}
+      IconComponent={() => (
+        <img src={dropdown} className="drop-img" alt="logo-drop" />
+      )}
+    >
+      <CustomMenuItem value="name-a-ya">Имя А-Я</CustomMenuItem>
+      <CustomMenuItem value="name-ya-a">Имя Я-А</CustomMenuItem>
+      <CustomMenuItem value="youngest">Сначала моложе</CustomMenuItem>
+      <CustomMenuItem value="oldest">Сначала старше</CustomMenuItem>
+      <CustomMenuItem value="high-rating">Высокий рейтинг</CustomMenuItem>
+      <CustomMenuItem value="lower-rating">Низкий рейтинг</CustomMenuItem>
+    </CustomSelect>
   );
 };
 
