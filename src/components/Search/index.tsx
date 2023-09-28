@@ -7,14 +7,16 @@ import { SearchProps } from "./types";
 
 import "./styles.scss";
 
-const Search: FC<SearchProps> = ({
-  data,
-  searchName,
-  setSearchText,
-  setData,
-  sortOption,
-  setSortOption,
-}) => {
+const Search: FC<SearchProps> = (props) => {
+  const {
+    data,
+    searchName,
+    setSearchText,
+    setData,
+    sortOption,
+    setSortOption,
+  } = props;
+
   const filteredStudents = data.filter((student) =>
     student.name.toLowerCase().includes(searchName.toLowerCase())
   );

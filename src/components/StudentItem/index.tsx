@@ -6,11 +6,9 @@ import ratingLogo from "images/ratingLogo.png";
 
 import "./styles.scss";
 
-const StudentItem: FC<StudentItemProps> = ({
-  filteredStudents,
-  setData,
-  sortOption,
-}) => {
+const StudentItem: FC<StudentItemProps> = (props) => {
+  const { filteredStudents, setData, sortOption } = props;
+
   const studentAge = (birth: Date) => {
     const today = new Date();
     const birthdate = new Date(birth);
