@@ -1,6 +1,7 @@
 import React, { FC } from "react";
-import StudentDeleteButton from "../StudentDeleteButton";
+import StudentDeleteButton from "components/StudentDeleteButton";
 import { StudentItemProps } from "./types";
+import { Positions } from "./types";
 
 import ratingLogo from "images/ratingLogo.png";
 
@@ -19,15 +20,6 @@ const StudentItem: FC<StudentItemProps> = (props) => {
 
     return age;
   };
-
-  const enum Positions {
-    NameA = "name-a-ya",
-    NameYa = "name-ya-a",
-    Oldest = "oldest",
-    Youngest = "youngest",
-    HighRating = "high-rating",
-    LowerRating = "lower-rating",
-  }
 
   const sortedData = filteredStudents.sort((a: any, b: any) => {
     if (sortOption === Positions.NameA) {

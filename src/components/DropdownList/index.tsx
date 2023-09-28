@@ -3,6 +3,7 @@ import { styled } from "@mui/system";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import { DropdownListProps, HandleDropdownList } from "./types";
+import { Positions } from "components/Search/types";
 
 import dropdown from "images/dropdown.png";
 
@@ -54,12 +55,16 @@ const DropdownList: FC<DropdownListProps> = ({ sortOption, setSortOption }) => {
         <img src={dropdown} className="drop-img" alt="logo-drop" />
       )}
     >
-      <CustomMenuItem value="name-a-ya">Имя А-Я</CustomMenuItem>
-      <CustomMenuItem value="name-ya-a">Имя Я-А</CustomMenuItem>
-      <CustomMenuItem value="youngest">Сначала моложе</CustomMenuItem>
-      <CustomMenuItem value="oldest">Сначала старше</CustomMenuItem>
-      <CustomMenuItem value="high-rating">Высокий рейтинг</CustomMenuItem>
-      <CustomMenuItem value="lower-rating">Низкий рейтинг</CustomMenuItem>
+      <CustomMenuItem value={Positions.NameA}>Имя А-Я</CustomMenuItem>
+      <CustomMenuItem value={Positions.NameYa}>Имя Я-А</CustomMenuItem>
+      <CustomMenuItem value={Positions.Oldest}>Сначала моложе</CustomMenuItem>
+      <CustomMenuItem value={Positions.Youngest}>Сначала старше</CustomMenuItem>
+      <CustomMenuItem value={Positions.HighRating}>
+        Высокий рейтинг
+      </CustomMenuItem>
+      <CustomMenuItem value={Positions.LowerRating}>
+        Низкий рейтинг
+      </CustomMenuItem>
     </CustomSelect>
   );
 };

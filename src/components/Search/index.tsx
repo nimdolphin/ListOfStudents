@@ -1,12 +1,12 @@
 import React, { useEffect, useState, FC } from "react";
-import HeaderStudentCard from "../HeaderStudentCard";
-import StudentItem from "../StudentItem";
-import DropdownList from "../DropdownList";
-import StudentSearch from "../StudentSearch";
+import HeaderStudentCard from "components/HeaderStudentCard";
+import StudentItem from "components/StudentItem";
+import DropdownList from "components/DropdownList";
+import StudentSearch from "components/StudentSearch";
 import { SearchProps } from "./types";
+import { Student } from "components/StudentDeleteButton/types";
 
 import "./styles.scss";
-import { Student } from "components/StudentDeleteButton/types";
 
 const Search: FC<SearchProps> = (props) => {
   const {

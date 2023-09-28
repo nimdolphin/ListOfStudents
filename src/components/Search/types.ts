@@ -14,6 +14,15 @@ export interface SearchProps {
   searchName: string;
   setSearchText: (value: string) => void;
   setData: React.Dispatch<React.SetStateAction<Student[]>>;
-  sortOption: string;
+  sortOption: string | Positions | number;
   setSortOption: (value: string) => void;
+}
+
+export const enum Positions {
+  NameA,
+  NameYa,
+  Oldest,
+  Youngest,
+  HighRating,
+  LowerRating,
 }

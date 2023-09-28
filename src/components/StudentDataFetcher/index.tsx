@@ -1,8 +1,10 @@
 import React, { useEffect, useState, FC } from "react";
-import Search from "../Search";
+import Search from "components/Search";
+import { Student } from "components/StudentDeleteButton/types";
+
+import { Positions } from "components/StudentItem/types";
 
 import "./styles.scss";
-import { Student } from "components/StudentDeleteButton/types";
 
 const StudentDataFetcher: FC = () => {
   const [data, setData] = useState<Student[]>([]);
@@ -11,7 +13,9 @@ const StudentDataFetcher: FC = () => {
 
   const [searchName, setSearchText] = useState("");
 
-  const [sortOption, setSortOption] = useState("name-a-ya");
+  const [sortOption, setSortOption] = useState<string | Positions>(
+    Positions.NameA
+  );
 
   useEffect(() => {
     const fetchData = () => {

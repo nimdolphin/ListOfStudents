@@ -1,7 +1,8 @@
 import { SelectChangeEvent } from "@mui/material";
+import { Positions } from "components/Search/types";
 
 export interface DropdownListProps {
-  sortOption: string;
+  sortOption: string | Positions;
   setSortOption: (value: string) => void;
 }
 

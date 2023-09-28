@@ -12,5 +12,14 @@ export type Student = {
 export type StudentItemProps = {
   filteredStudents: Student[];
   setData: React.Dispatch<React.SetStateAction<Student[]>>;
-  sortOption: string;
+  sortOption: string | Positions | number;
 };
+
+export const enum Positions {
+  NameA,
+  NameYa,
+  Oldest,
+  Youngest,
+  HighRating,
+  LowerRating,
+}
