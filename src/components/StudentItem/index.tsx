@@ -39,78 +39,74 @@ const StudentItem: FC<StudentItemProps> = (props) => {
     }
   });
 
-  return (
-    <>
-      {sortedData?.map(
-        ({ name, specialty, avatar, group, birthday, rating, color, id }) => {
-          return (
-            <ul key={id}>
-              <li className="list">
-                <div className="container">
-                  <div className="wrapper-avatar-name">
-                    <div className="avatar-name">
-                      <div className="wrapp-avatar">
-                        <img className="avatar" src={avatar} alt="avatar" />
-                      </div>
-                      <div className="surname">
-                        <h5>{name}</h5>
-                      </div>
+  return sortedData?.map((props) => {
+    const { name, specialty, avatar, group, birthday, rating, color, id } =
+      props;
+    return (
+      <ul key={id}>
+        <li className="list">
+          <div className="container">
+            <div className="wrapper-avatar-name">
+              <div className="avatar-name">
+                <div className="wrapp-avatar">
+                  <img className="avatar" src={avatar} alt="avatar" />
+                </div>
+                <div className="surname">
+                  <h5>{name}</h5>
+                </div>
+              </div>
+
+              <div className="line2" />
+              <div className="info">
+                <div className="group1 specialty">
+                  <h5 className="grop11 s-g-b">{specialty}</h5>
+                </div>
+
+                <div className="group1 group">
+                  <h5 className="grop11 s-g-b">{group}</h5>
+                </div>
+
+                <div className="group1 birthday">
+                  <h5 className="grop11 s-g-b">{studentAge(birthday)}</h5>
+                </div>
+
+                <div className="group1 rating">
+                  <h5 className="grop11 rat">{rating}</h5>
+                </div>
+
+                <div className="group1 color">
+                  <div className="grop11">
+                    <h5
+                      className="color-box"
+                      style={{ backgroundColor: color, borderRadius: 50 }}
+                    >
+                      {" "}
+                    </h5>
+                    <div className="star">
+                      <img
+                        className="star-rating"
+                        src={ratingLogo}
+                        alt="rating"
+                      />
                     </div>
-
-                    <div className="line2" />
-                    <div className="info">
-                      <div className="group1 specialty">
-                        <h5 className="grop11 s-g-b">{specialty}</h5>
-                      </div>
-
-                      <div className="group1 group">
-                        <h5 className="grop11 s-g-b">{group}</h5>
-                      </div>
-
-                      <div className="group1 birthday">
-                        <h5 className="grop11 s-g-b">{studentAge(birthday)}</h5>
-                      </div>
-
-                      <div className="group1 rating">
-                        <h5 className="grop11 rat">{rating}</h5>
-                      </div>
-
-                      <div className="group1 color">
-                        <div className="grop11">
-                          <h5
-                            className="color-box"
-                            style={{ backgroundColor: color, borderRadius: 50 }}
-                          >
-                            {" "}
-                          </h5>
-                          <div className="star">
-                            <img
-                              className="star-rating"
-                              src={ratingLogo}
-                              alt="rating"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="line" />
-                  </div>
-                  <div className="trash-btn">
-                    <StudentDeleteButton
-                      sortedData={sortedData}
-                      id={id}
-                      setData={setData}
-                    />
                   </div>
                 </div>
-              </li>
-            </ul>
-          );
-        }
-      )}
-    </>
-  );
+              </div>
+
+              <div className="line" />
+            </div>
+            <div className="trash-btn">
+              <StudentDeleteButton
+                sortedData={sortedData}
+                id={id}
+                setData={setData}
+              />
+            </div>
+          </div>
+        </li>
+      </ul>
+    );
+  });
 };
 
 export default StudentItem;
