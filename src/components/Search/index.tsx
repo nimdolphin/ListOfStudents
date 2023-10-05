@@ -6,7 +6,7 @@ import StudentSearch from "components/StudentSearch";
 import { SearchProps } from "./types";
 import { Student } from "components/StudentDeleteButton/types";
 
-import "./styles.scss";
+import { SearchBox, HeaderStudentBox, StudentListBox } from "./styles";
 
 const Search: FC<SearchProps> = (props) => {
   const {
@@ -34,22 +34,22 @@ const Search: FC<SearchProps> = (props) => {
 
   return (
     <>
-      <div className="box">
+      <SearchBox>
         <StudentSearch searchName={searchName} setSearchText={setSearchText} />
         <DropdownList setSortOption={setSortOption} sortOption={sortOption} />
-      </div>
+      </SearchBox>
 
-      <div className="header-student">
+      <HeaderStudentBox>
         <HeaderStudentCard />
-      </div>
+      </HeaderStudentBox>
 
-      <div className="all-students">
+      <StudentListBox>
         <StudentItem
           filteredStudents={filteredStudents}
           setData={setData}
           sortOption={sortOption}
         />
-      </div>
+      </StudentListBox>
     </>
   );
 };
