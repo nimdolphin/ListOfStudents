@@ -1,18 +1,29 @@
 import React, { FC } from "react";
 
-import circle from "images/circle.png";
+import {
+  StyledHeader,
+  StyledIconHeader,
+  WrapperText,
+  BoldTextStudent,
+  BoldTextBy,
+  BlueText,
+  Space,
+} from "./styles";
 
-import "./styles.scss";
+import circle from "images/circle.png";
 
 const Header: FC = () => (
   <>
-    <div className="header">
-      <img src={circle} className="logo" alt="logo" />
-      <h3 className="logo-students">
-        <span className="black">STUDENTS by </span>
-        <span className="blue">github-user-name</span>
-      </h3>
-    </div>
+    <StyledHeader>
+      <StyledIconHeader src={circle} alt="logo" />
+      <WrapperText variant="h5">
+        <BoldTextStudent>STUDENTS </BoldTextStudent>
+        <Space />
+        <BoldTextBy>by</BoldTextBy>
+        <Space />
+        <BlueText>github-user-name</BlueText>
+      </WrapperText>
+    </StyledHeader>
   </>
 );
 
