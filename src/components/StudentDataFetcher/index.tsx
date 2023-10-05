@@ -1,5 +1,6 @@
 import React, { useEffect, useState, FC } from "react";
 import Search from "components/Search";
+import BASE_URL from "api";
 import { Student } from "components/StudentDeleteButton/types";
 
 import { Positions } from "components/StudentItem/types";
@@ -20,7 +21,7 @@ const StudentDataFetcher: FC = () => {
   useEffect(() => {
     const fetchData = () => {
       try {
-        fetch(`https://front-assignment-api.2tapp.cc/api/persons`)
+        fetch(`${BASE_URL}`)
           .then((res) => {
             if (!res.ok) {
               throw Error("Oops, something went wrong...");
