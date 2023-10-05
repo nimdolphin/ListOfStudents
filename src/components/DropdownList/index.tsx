@@ -1,11 +1,10 @@
 import React, { FC } from "react";
-import { CustomSelect, CustomMenuItem } from "./styles";
 import { DropdownListProps, HandleDropdownList } from "./types";
 import { Positions } from "components/Search/types";
 
-import dropdown from "images/dropdown.png";
+import { CustomSelect, CustomMenuItem, CustomImage } from "./styles";
 
-import "./styles.scss";
+import dropdown from "images/dropdown.png";
 
 const newDropdownList = [
   { label: "Имя от А-Я", value: Positions.NameA },
@@ -26,9 +25,7 @@ const DropdownList: FC<DropdownListProps> = ({ sortOption, setSortOption }) => {
       className="select-list"
       onChange={handleDropdownList}
       value={sortOption}
-      IconComponent={() => (
-        <img src={dropdown} className="drop-img" alt="logo-drop" />
-      )}
+      IconComponent={() => <CustomImage src={dropdown} alt="logo-drop" />}
     >
       {newDropdownList.map((option) => (
         <CustomMenuItem key={option.value} value={option.value}>

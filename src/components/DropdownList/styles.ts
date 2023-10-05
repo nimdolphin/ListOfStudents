@@ -22,6 +22,9 @@ export const CustomSelect = styled(Select)({
     padding: "0 8px",
     fontSize: "0",
   },
+  ".MuiOutlinedInput-notchedOutline": {
+    border: "none !important",
+  },
 });
 
 export const CustomMenuItem = styled(MenuItem)({
@@ -31,5 +34,12 @@ export const CustomMenuItem = styled(MenuItem)({
   fontSize: "16px",
   "&::before": {
     marginRight: "8px",
+  },
+});
+
+export const CustomImage = styled("img")({
+  marginRight: "7px",
+  "@media (max-width: 375px)": {
+    marginLeft: "-30px",
   },
 });
