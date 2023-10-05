@@ -7,6 +7,15 @@ import dropdown from "images/dropdown.png";
 
 import "./styles.scss";
 
+const newDropdownList = [
+  { label: "Имя от А-Я", value: Positions.NameA },
+  { label: "Имя от Я-А", value: Positions.NameYa },
+  { label: "Сначала моложе", value: Positions.Youngest },
+  { label: "Сначала старше", value: Positions.Oldest },
+  { label: "Высокий рейтинг", value: Positions.HighRating },
+  { label: "Низкий рейтинг", value: Positions.LowerRating },
+];
+
 const DropdownList: FC<DropdownListProps> = ({ sortOption, setSortOption }) => {
   const handleDropdownList: HandleDropdownList = (event) => {
     setSortOption(event.target.value as string);
@@ -21,16 +30,11 @@ const DropdownList: FC<DropdownListProps> = ({ sortOption, setSortOption }) => {
         <img src={dropdown} className="drop-img" alt="logo-drop" />
       )}
     >
-      <CustomMenuItem value={Positions.NameA}>Имя А-Я</CustomMenuItem>
-      <CustomMenuItem value={Positions.NameYa}>Имя Я-А</CustomMenuItem>
-      <CustomMenuItem value={Positions.Oldest}>Сначала моложе</CustomMenuItem>
-      <CustomMenuItem value={Positions.Youngest}>Сначала старше</CustomMenuItem>
-      <CustomMenuItem value={Positions.HighRating}>
-        Высокий рейтинг
-      </CustomMenuItem>
-      <CustomMenuItem value={Positions.LowerRating}>
-        Низкий рейтинг
-      </CustomMenuItem>
+      {newDropdownList.map((option) => (
+        <CustomMenuItem key={option.value} value={option.value}>
+          {option.label}
+        </CustomMenuItem>
+      ))}
     </CustomSelect>
   );
 };
