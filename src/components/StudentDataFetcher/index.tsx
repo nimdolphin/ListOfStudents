@@ -1,11 +1,13 @@
 import React, { useEffect, useState, FC } from "react";
+import { Typography } from "@mui/material";
+
 import Search from "components/Search";
 import BASE_URL from "api";
 import { Student } from "components/StudentDeleteButton/types";
 
 import { Positions } from "components/StudentItem/types";
 
-import "./styles.scss";
+import { WrapBox } from "./styles";
 
 const StudentDataFetcher: FC = () => {
   const [data, setData] = useState<Student[]>([]);
@@ -42,9 +44,9 @@ const StudentDataFetcher: FC = () => {
   }, []);
 
   return (
-    <div className="container-all">
+    <WrapBox>
       {error ? (
-        <p className="error-message">{error}</p>
+        <Typography>{error}</Typography>
       ) : (
         <Search
           data={data}
@@ -55,7 +57,7 @@ const StudentDataFetcher: FC = () => {
           setSortOption={setSortOption}
         />
       )}
-    </div>
+    </WrapBox>
   );
 };
 
