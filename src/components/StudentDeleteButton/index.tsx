@@ -1,10 +1,11 @@
 import React, { FC } from "react";
+import { Avatar } from "@mui/material";
 
 import { StudentDeleteButtonProps } from "./types";
 
 import trashImg from "images/trashImg.png";
 
-import "./styles.scss";
+import { DeleteBtn } from "./styles";
 
 const StudentDeleteButton: FC<StudentDeleteButtonProps> = (props) => {
   const { sortedData, id, setData } = props;
@@ -16,9 +17,9 @@ const StudentDeleteButton: FC<StudentDeleteButtonProps> = (props) => {
   };
 
   return (
-    <button className="button" onClick={handleDeleteStudent(id)}>
-      <img className="trash" src={trashImg} alt="trash" />
-    </button>
+    <DeleteBtn onClick={handleDeleteStudent(id)}>
+      <Avatar src={trashImg} alt="trashImg" />
+    </DeleteBtn>
   );
 };
 
