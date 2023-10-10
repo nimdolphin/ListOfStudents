@@ -4,19 +4,19 @@ import { Box, Typography } from "@mui/material";
 
 import { customStyles, group } from "./styles";
 
-const HeaderStudentCard: FC = () => (
-  <Box sx={group}>
-    <Typography sx={customStyles}>ФИО</Typography>
+const HeaderStudentCard: FC = () => {
+  const items = ["ФИО", "Специальность", "Группа", "Возраст", "Рейтинг"];
 
-    <Typography sx={customStyles}>Специальность</Typography>
-
-    <Typography sx={customStyles}>Группа</Typography>
-
-    <Typography sx={customStyles}>Возраст</Typography>
-
-    <Typography sx={customStyles}>Рейтинг</Typography>
-    <Typography sx={{ flex: 1 }} />
-  </Box>
-);
+  return (
+    <Box sx={group}>
+      {items.map((item, idx) => (
+        <Typography key={idx} sx={customStyles}>
+          {item}
+        </Typography>
+      ))}
+      <Typography sx={{ flex: 1 }} />
+    </Box>
+  );
+};
 
 export default HeaderStudentCard;
