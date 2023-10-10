@@ -12,7 +12,7 @@ export const SearchBox = styled(Box)`
 `;
 
 export const HeaderStudentBox = styled(Box)`
-  padding-bottom: 60px;
+  padding-bottom: 30px;
 `;
 
 export const StudentListBox = styled(Box)`

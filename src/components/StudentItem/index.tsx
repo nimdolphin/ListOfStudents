@@ -1,11 +1,25 @@
 import React, { FC } from "react";
+import { Avatar, Box, List, ListItem, Typography } from "@mui/material";
+
 import StudentDeleteButton from "components/StudentDeleteButton";
+
 import { StudentItemProps } from "./types";
 import { Positions } from "./types";
 
-import ratingLogo from "images/ratingLogo.png";
-
-import "./styles.scss";
+import {
+  list,
+  container,
+  avatarName,
+  photo,
+  surname,
+  infoStudent,
+  specialtyItem,
+  groupItem,
+  ageItem,
+  ratingItem,
+  ColorItem,
+  deleteBtn,
+} from "./styles";
 
 const StudentItem: FC<StudentItemProps> = (props) => {
   const { filteredStudents, setData, sortOption } = props;
@@ -42,69 +56,38 @@ const StudentItem: FC<StudentItemProps> = (props) => {
   return sortedData?.map((props) => {
     const { name, specialty, avatar, group, birthday, rating, color, id } =
       props;
+
     return (
-      <ul key={id}>
-        <li className="list">
-          <div className="container">
-            <div className="wrapper-avatar-name">
-              <div className="avatar-name">
-                <div className="wrapp-avatar">
-                  <img className="avatar" src={avatar} alt="avatar" />
-                </div>
-                <div className="surname">
-                  <h5>{name}</h5>
-                </div>
-              </div>
+      <List key={id}>
+        <ListItem sx={list}>
+          <Box sx={container}>
+            <Box>
+              <Box sx={avatarName}>
+                <Avatar sx={photo} src={avatar} alt="avatar" />
+                <Typography sx={surname}>{name}</Typography>
+              </Box>
 
-              <div className="line2" />
-              <div className="info">
-                <div className="group1 specialty">
-                  <h5 className="grop11 s-g-b">{specialty}</h5>
-                </div>
+              <Box sx={infoStudent}>
+                <Typography sx={specialtyItem}>{specialty}</Typography>
+                <Typography sx={groupItem}>{group}</Typography>
+                <Typography sx={ageItem}>{studentAge(birthday)}</Typography>
+                <Typography sx={ratingItem}>{rating}</Typography>
 
-                <div className="group1 group">
-                  <h5 className="grop11 s-g-b">{group}</h5>
-                </div>
-
-                <div className="group1 birthday">
-                  <h5 className="grop11 s-g-b">{studentAge(birthday)}</h5>
-                </div>
-
-                <div className="group1 rating">
-                  <h5 className="grop11 rat">{rating}</h5>
-                </div>
-
-                <div className="group1 color">
-                  <div className="grop11">
-                    <h5
-                      className="color-box"
-                      style={{ backgroundColor: color, borderRadius: 50 }}
-                    >
-                      {" "}
-                    </h5>
-                    <div className="star">
-                      <img
-                        className="star-rating"
-                        src={ratingLogo}
-                        alt="rating"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
+                <ColorItem color={color} />
+              </Box>
 
               <div className="line" />
-            </div>
-            <div className="trash-btn">
+            </Box>
+            <Box sx={deleteBtn}>
               <StudentDeleteButton
                 sortedData={sortedData}
                 id={id}
                 setData={setData}
               />
-            </div>
-          </div>
-        </li>
-      </ul>
+            </Box>
+          </Box>
+        </ListItem>
+      </List>
     );
   });
 };
