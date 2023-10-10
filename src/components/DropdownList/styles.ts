@@ -15,9 +15,9 @@ export const CustomSelect = styled(Select)({
     boxShadow: "none",
     border: "none",
   },
+
   "@media screen and (max-width: 375px)": {
     width: "60px",
-    height: "43px",
     backgroundColor: "#fff",
     padding: "0 8px",
     fontSize: "0",
@@ -39,6 +39,7 @@ export const CustomMenuItem = styled(MenuItem)({
 
 export const CustomImage = styled("img")({
   marginRight: "7px",
+
   "@media (max-width: 375px)": {
     marginLeft: "-30px",
   },

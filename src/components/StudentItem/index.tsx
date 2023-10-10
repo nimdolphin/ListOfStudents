@@ -6,6 +6,8 @@ import StudentDeleteButton from "components/StudentDeleteButton";
 import { StudentItemProps } from "./types";
 import { Positions } from "./types";
 
+import raitingLogo from "images/ratingLogo.png";
+
 import {
   list,
   container,
@@ -19,6 +21,9 @@ import {
   ratingItem,
   ColorItem,
   deleteBtn,
+  raitingImg,
+  line,
+  thinLine,
 } from "./styles";
 
 const StudentItem: FC<StudentItemProps> = (props) => {
@@ -72,12 +77,12 @@ const StudentItem: FC<StudentItemProps> = (props) => {
                 <Typography sx={groupItem}>{group}</Typography>
                 <Typography sx={ageItem}>{studentAge(birthday)}</Typography>
                 <Typography sx={ratingItem}>{rating}</Typography>
+                <Avatar sx={raitingImg} src={raitingLogo} alt="raitingLogo" />
 
                 <ColorItem color={color} />
               </Box>
-
-              <div className="line" />
             </Box>
+
             <Box sx={deleteBtn}>
               <StudentDeleteButton
                 sortedData={sortedData}
@@ -87,6 +92,9 @@ const StudentItem: FC<StudentItemProps> = (props) => {
             </Box>
           </Box>
         </ListItem>
+        <Box sx={thinLine} />
+
+        <Box sx={line} />
       </List>
     );
   });

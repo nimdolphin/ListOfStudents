@@ -20,7 +20,7 @@ export const StyledIconHeader = styled(Avatar)`
   margin-right: 20px;
 
   @media screen and (max-width: 375px) {
-    margin-left: 30px;
+    margin-left: 15px;
   }
 `;
 

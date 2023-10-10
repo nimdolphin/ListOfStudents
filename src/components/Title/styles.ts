@@ -9,7 +9,7 @@ export const TypographyTitle = styled(Typography)`
   font-weight: 600;
 
   @media screen and (max-width: 375px) {
-    margin-left: 15px;
+    margin-left: 5px;
     padding-top: 30px;
     font-size: 30px;
   }

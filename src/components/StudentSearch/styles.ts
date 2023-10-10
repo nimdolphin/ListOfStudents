@@ -19,10 +19,8 @@ export const SearchField = styled(TextField)(({ theme }: { theme: Theme }) => ({
     border: "none !important",
   },
   [theme.breakpoints.down("sm")]: {
-    marginLeft: "-50px",
-    height: "45px",
     backgroundColor: "#fff",
-    maxWidth: "200px",
+    maxWidth: "230px",
     borderRadius: "3px",
   },
 }));
