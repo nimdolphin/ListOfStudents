@@ -1,12 +1,12 @@
 import React, { FC } from "react";
-import "./styles.scss";
+import { Box } from "@mui/material";
 
-const Title: FC = () => {
-  return (
-    <div>
-      <h1 className="students">Студенты</h1>
-    </div>
-  );
-};
+import { TypographyTitle } from "./styles";
+
+const Title: FC = () => (
+  <Box>
+    <TypographyTitle>Студенты</TypographyTitle>
+  </Box>
+);
 
 export default Title;

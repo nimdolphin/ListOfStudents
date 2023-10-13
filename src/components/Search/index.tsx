@@ -1,63 +1,55 @@
-import React, { FC } from "react";
-import HeaderStudentCard from "../HeaderStudentCard";
-import StudentItem from "../StudentItem";
-import DropdownList from "../DropdownList";
-import StudentSearch from "../StudentSearch";
+import React, { useEffect, useState, FC } from "react";
+import HeaderStudentCard from "components/HeaderStudentCard";
+import StudentItem from "components/StudentItem";
+import DropdownList from "components/DropdownList";
+import StudentSearch from "components/StudentSearch";
+import { SearchProps } from "./types";
+import { Student } from "components/StudentDeleteButton/types";
 
-import "./styles.scss";
+import { SearchBox, HeaderStudentBox, StudentListBox } from "./styles";
 
-interface Student {
-  id: number;
-  name: string;
-  specialty: string;
-  avatar: string;
-  group: string;
-  birthday: string;
-  rating: number;
-  color: string;
-}
+const Search: FC<SearchProps> = (props) => {
+  const {
+    data,
+    searchName,
+    setSearchText,
+    setData,
+    sortOption,
+    setSortOption,
+  } = props;
 
-interface SearchProps {
-  data: Student[];
-  searchName: string;
-  setSearchText: React.Dispatch<React.SetStateAction<string>>;
-  setData: React.Dispatch<React.SetStateAction<Student[]>>;
-  sortOption: string;
-  setSortOption: React.Dispatch<React.SetStateAction<string>>;
-}
+  const [filteredStudents, setFilteredStudents] = useState<Student[]>([]);
 
-const Search: FC<SearchProps> = ({
-  data,
-  searchName,
-  setSearchText,
-  setData,
-  sortOption,
-  setSortOption,
-}) => {
-  const filteredStudents = data.filter((student) =>
-    student.name.toLowerCase().includes(searchName.toLowerCase())
-  );
+  useEffect(() => {
+    const filteredStudents = () => {
+      const filtered = data.filter((student) =>
+        student.name
+          .toLocaleLowerCase()
+          .includes(searchName.toLocaleLowerCase())
+      );
+      setFilteredStudents(filtered);
+    };
+    filteredStudents();
+  }, [data, searchName]);
 
   return (
     <>
-      <div className="box">
+      <SearchBox>
         <StudentSearch searchName={searchName} setSearchText={setSearchText} />
         <DropdownList setSortOption={setSortOption} sortOption={sortOption} />
-      </div>
+      </SearchBox>
 
-      <div className="header-student">
+      <HeaderStudentBox>
         <HeaderStudentCard />
-      </div>
+      </HeaderStudentBox>
 
-      <ul className="all-students">
-        {
-          <StudentItem
-            filteredStudents={filteredStudents}
-            setData={setData}
-            sortOption={sortOption}
-          />
-        }
-      </ul>
+      <StudentListBox>
+        <StudentItem
+          filteredStudents={filteredStudents}
+          setData={setData}
+          sortOption={sortOption}
+        />
+      </StudentListBox>
     </>
   );
 };

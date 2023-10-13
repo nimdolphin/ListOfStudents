@@ -1,21 +1,32 @@
 import React, { useEffect, useState, FC } from "react";
-import Search from "../Search";
+import { Typography } from "@mui/material";
 
-import "./styles.scss";
+import Search from "components/Search";
+import BASE_URL from "api";
+import { Student } from "components/StudentDeleteButton/types";
+
+import { Positions } from "components/StudentItem/types";
+
+import { WrapBox } from "./styles";
 
 const StudentDataFetcher: FC = () => {
-  const [data, setData] = useState<any[]>([]);
-  const [error, setError] = useState<string | null>(null);
-  const [searchName, setSearchText] = useState<string>("");
-  const [sortOption, setSortOption] = useState<string>("name-a-ya");
+  const [data, setData] = useState<Student[]>([]);
+
+  const [error, setError] = useState(null);
+
+  const [searchName, setSearchText] = useState("");
+
+  const [sortOption, setSortOption] = useState<string | Positions>(
+    Positions.NameA
+  );
 
   useEffect(() => {
     const fetchData = () => {
       try {
-        fetch(`https://front-assignment-api.2tapp.cc/api/persons`)
+        fetch(`${BASE_URL}`)
           .then((res) => {
             if (!res.ok) {
-              throw Error("Упс, что-то пошло не так...");
+              throw Error("Oops, something went wrong...");
             }
 
             return res.json();
@@ -33,9 +44,9 @@ const StudentDataFetcher: FC = () => {
   }, []);
 
   return (
-    <div className="container-all">
+    <WrapBox>
       {error ? (
-        <p className="error-message">{error}</p>
+        <Typography>{error}</Typography>
       ) : (
         <Search
           data={data}
@@ -46,7 +57,7 @@ const StudentDataFetcher: FC = () => {
           setSortOption={setSortOption}
         />
       )}
-    </div>
+    </WrapBox>
   );
 };
 

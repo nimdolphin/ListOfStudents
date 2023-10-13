@@ -1,33 +1,21 @@
 import React, { FC } from "react";
-import "./styles.scss";
+
+import { Box, Typography } from "@mui/material";
+
+import { customStyles, group } from "./styles";
 
 const HeaderStudentCard: FC = () => {
+  const items = ["ФИО", "Специальность", "Группа", "Возраст", "Рейтинг"];
+
   return (
-    <div className="students-list-header">
-      <div className="student-item11">
-        <h5 className="student-item">ФИО</h5>
-      </div>
-
-      <div className="student-item11">
-        <h5 className="student-item">Специальность</h5>
-      </div>
-
-      <div className="student-item11">
-        <h5 className="student-item">Группа</h5>
-      </div>
-
-      <div className="student-item11">
-        <h5 className="student-item">Возраст</h5>
-      </div>
-
-      <div className="student-item11">
-        <h5 className="student-item">Рейтинг</h5>
-      </div>
-
-      <div className="student-item11">
-        <div className="student-item"></div>
-      </div>
-    </div>
+    <Box sx={group}>
+      {items.map((item, idx) => (
+        <Typography key={idx} sx={customStyles}>
+          {item}
+        </Typography>
+      ))}
+      <Typography sx={{ flex: 1 }} />
+    </Box>
   );
 };
 

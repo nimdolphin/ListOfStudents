@@ -1,30 +1,15 @@
 import React, { FC } from "react";
-import trash from "../../images/trash.png";
+import { Avatar } from "@mui/material";
 
-import "./styles.scss";
+import { StudentDeleteButtonProps } from "./types";
 
-type Student = {
-  id: number;
-  name: string;
-  specialty: string;
-  avatar: string;
-  group: string;
-  birthday: string;
-  rating: number;
-  color: string;
-};
+import trashImg from "images/trashImg.png";
 
-type StudentDeleteButtonProps = {
-  sortedData: Student[];
-  setData: React.Dispatch<React.SetStateAction<Student[]>>;
-  id: number;
-};
+import { DeleteBtn } from "./styles";
 
-const StudentDeleteButton: FC<StudentDeleteButtonProps> = ({
-  sortedData,
-  id,
-  setData,
-}) => {
+const StudentDeleteButton: FC<StudentDeleteButtonProps> = (props) => {
+  const { sortedData, id, setData } = props;
+
   const handleDeleteStudent = (deleteId: number) => () => {
     const newStudents = sortedData.filter(({ id }) => id !== deleteId);
 
@@ -32,11 +17,9 @@ const StudentDeleteButton: FC<StudentDeleteButtonProps> = ({
   };
 
   return (
-    <>
-      <button className="button" onClick={handleDeleteStudent(id)}>
-        <img className="trash" src={trash} alt="trash" />
-      </button>
-    </>
+    <DeleteBtn onClick={handleDeleteStudent(id)}>
+      <Avatar src={trashImg} alt="trashImg" />
+    </DeleteBtn>
   );
 };
 

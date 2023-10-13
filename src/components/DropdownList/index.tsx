@@ -1,71 +1,38 @@
 import React, { FC } from "react";
-import { styled } from "@mui/system";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import { SelectChangeEvent } from "@mui/material";
+import { DropdownListProps, HandleDropdownList } from "./types";
+import { Positions } from "components/Search/types";
 
-import CustomDropdownIcon from "../CustomDropdownIcon";
+import { CustomSelect, CustomMenuItem, CustomImage } from "./styles";
 
-import "./styles.scss";
+import dropdown from "images/dropdown.png";
 
-interface DropdownListProps {
-  sortOption: string;
-  setSortOption: React.Dispatch<React.SetStateAction<string>>;
-}
-
-const CustomSelect = styled(Select)({
-  width: "250px",
-  height: "55px",
-  fontSize: "16px",
-  border: "none",
-  outline: "none",
-  background: "none",
-  WebkitAppearance: "none",
-  backgroundColor: "#fff",
-  "&:focus": {
-    boxShadow: "none",
-    border: "none",
-  },
-  "@media screen and (max-width: 375px)": {
-    width: "60px",
-    height: "43px",
-    backgroundColor: "#fff",
-    padding: "0 8px",
-    fontSize: "0",
-  },
-});
-
-const CustomMenuItem = styled(MenuItem)({
-  background: "white",
-  color: "black",
-  padding: "15px",
-  fontSize: "16px",
-  "&::before": {
-    marginRight: "8px",
-  },
-});
+const newDropdownList = [
+  { label: "Имя от А-Я", value: Positions.NameA },
+  { label: "Имя от Я-А", value: Positions.NameYa },
+  { label: "Сначала моложе", value: Positions.Youngest },
+  { label: "Сначала старше", value: Positions.Oldest },
+  { label: "Высокий рейтинг", value: Positions.HighRating },
+  { label: "Низкий рейтинг", value: Positions.LowerRating },
+];
 
 const DropdownList: FC<DropdownListProps> = ({ sortOption, setSortOption }) => {
-  const handleDropdownList = (event: SelectChangeEvent<unknown>) => {
+  const handleDropdownList: HandleDropdownList = (event) => {
     setSortOption(event.target.value as string);
   };
 
   return (
-    <div className="dropdown">
-      <CustomSelect
-        className="select-list"
-        onChange={handleDropdownList}
-        value={sortOption}
-        IconComponent={CustomDropdownIcon}
-      >
-        <CustomMenuItem value="name-a-ya">Имя А-Я</CustomMenuItem>
-        <CustomMenuItem value="name-ya-a">Имя Я-А</CustomMenuItem>
-        <CustomMenuItem value="youngest">Сначала моложе</CustomMenuItem>
-        <CustomMenuItem value="oldest">Сначала старше</CustomMenuItem>
-        <CustomMenuItem value="high-rating">Высокий рейтинг</CustomMenuItem>
-        <CustomMenuItem value="lower-rating">Низкий рейтинг</CustomMenuItem>
-      </CustomSelect>
-    </div>
+    <CustomSelect
+      className="select-list"
+      onChange={handleDropdownList}
+      value={sortOption}
+      IconComponent={() => <CustomImage src={dropdown} alt="logo-drop" />}
+    >
+      {newDropdownList.map((option) => (
+        <CustomMenuItem key={option.value} value={option.value}>
+          {option.label}
+        </CustomMenuItem>
+      ))}
+    </CustomSelect>
   );
 };
 

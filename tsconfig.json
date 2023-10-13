@@ -1,5 +1,11 @@
 {
   "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "components/*": ["components/*"],
+      "libraries/*": ["libraries/*"],
+      "images/*": ["images/*"]
+    },
     "moduleResolution": "node",
     "target": "esnext",
     "module": "esnext",

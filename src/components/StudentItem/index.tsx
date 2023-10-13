@@ -1,32 +1,35 @@
 import React, { FC } from "react";
-import StudentDeleteButton from "../StudentDeleteButton";
-import ratingLogo from "../../images/ratingLogo.png";
+import { Avatar, Box, List, ListItem, Typography } from "@mui/material";
 
-import "./styles.scss";
+import StudentDeleteButton from "components/StudentDeleteButton";
 
-type Student = {
-  id: number;
-  name: string;
-  specialty: string;
-  avatar: string;
-  group: string;
-  birthday: string;
-  rating: number;
-  color: string;
-};
+import { StudentItemProps } from "./types";
+import { Positions } from "./types";
 
-type StudentItemProps = {
-  filteredStudents: Student[];
-  setData: React.Dispatch<React.SetStateAction<Student[]>>;
-  sortOption: string;
-};
+import raitingLogo from "images/ratingLogo.png";
 
-const StudentItem: FC<StudentItemProps> = ({
-  filteredStudents,
-  setData,
-  sortOption,
-}) => {
-  const studentAge = (birth: string) => {
+import {
+  list,
+  container,
+  avatarName,
+  photo,
+  surname,
+  infoStudent,
+  specialtyItem,
+  groupItem,
+  ageItem,
+  ratingItem,
+  ColorItem,
+  deleteBtn,
+  raitingImg,
+  line,
+  thinLine,
+} from "./styles";
+
+const StudentItem: FC<StudentItemProps> = (props) => {
+  const { filteredStudents, setData, sortOption } = props;
+
+  const studentAge = (birth: Date) => {
     const today = new Date();
     const birthdate = new Date(birth);
     let age = today.getFullYear() - birthdate.getFullYear();
@@ -36,15 +39,6 @@ const StudentItem: FC<StudentItemProps> = ({
 
     return age;
   };
-
-  const enum Positions {
-    NameA = "name-a-ya",
-    NameYa = "name-ya-a",
-    Oldest = "oldest",
-    Youngest = "youngest",
-    HighRating = "high-rating",
-    LowerRating = "lower-rating",
-  }
 
   const sortedData = filteredStudents.sort((a: any, b: any) => {
     if (sortOption === Positions.NameA) {
@@ -64,76 +58,46 @@ const StudentItem: FC<StudentItemProps> = ({
     }
   });
 
-  return (
-    <>
-      {sortedData?.map(
-        ({ name, specialty, avatar, group, birthday, rating, color, id }) => {
-          return (
-            <li className="list" key={id}>
-              <div className="container">
-                <div className="wrapper-avatar-name">
-                  <div className="avatar-name">
-                    <div className="wrapp-avatar">
-                      <img className="avatar" src={avatar} alt="avatar" />
-                    </div>
-                    <div className="surname">
-                      <h5>{name}</h5>
-                    </div>
-                  </div>
+  return sortedData?.map((props) => {
+    const { name, specialty, avatar, group, birthday, rating, color, id } =
+      props;
 
-                  <div className="line2" />
-                  <div className="info">
-                    <div className="group1 specialty">
-                      <h5 className="grop11 s-g-b">{specialty}</h5>
-                    </div>
+    return (
+      <List key={id}>
+        <ListItem sx={list}>
+          <Box sx={container}>
+            <Box>
+              <Box sx={avatarName}>
+                <Avatar sx={photo} src={avatar} alt="avatar" />
+                <Typography sx={surname}>{name}</Typography>
+              </Box>
 
-                    <div className="group1 group">
-                      <h5 className="grop11 s-g-b">{group}</h5>
-                    </div>
+              <Box sx={infoStudent}>
+                <Typography sx={specialtyItem}>{specialty}</Typography>
+                <Typography sx={groupItem}>{group}</Typography>
+                <Typography sx={ageItem}>{studentAge(birthday)}</Typography>
+                <Typography sx={ratingItem}>{rating}</Typography>
+                <Avatar sx={raitingImg} src={raitingLogo} alt="raitingLogo" />
 
-                    <div className="group1 birthday">
-                      <h5 className="grop11 s-g-b">{studentAge(birthday)}</h5>
-                    </div>
+                <ColorItem color={color} />
+              </Box>
+            </Box>
 
-                    <div className="group1 rating">
-                      <h5 className="grop11 rat">{rating}</h5>
-                    </div>
+            <Box sx={deleteBtn}>
+              <StudentDeleteButton
+                sortedData={sortedData}
+                id={id}
+                setData={setData}
+              />
+            </Box>
+          </Box>
+        </ListItem>
+        <Box sx={thinLine} />
 
-                    <div className="group1 color">
-                      <div className="grop11">
-                        <h5
-                          className="color-box"
-                          style={{ backgroundColor: color, borderRadius: 50 }}
-                        >
-                          {" "}
-                        </h5>
-                        <div className="star">
-                          <img
-                            className="star-rating"
-                            src={ratingLogo}
-                            alt="rating"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="line" />
-                </div>
-                <div className="trash-btn">
-                  <StudentDeleteButton
-                    sortedData={sortedData}
-                    id={id}
-                    setData={setData}
-                  />
-                </div>
-              </div>
-            </li>
-          );
-        }
-      )}
-    </>
-  );
+        <Box sx={line} />
+      </List>
+    );
+  });
 };
 
 export default StudentItem;

@@ -1,21 +1,22 @@
 import React, { FC } from "react";
-import Header from "./components/Header";
-import StudentDataFetcher from "./components/StudentDataFetcher";
-import Title from "./components/Title";
 
-import "./App.scss";
+import Header from "components/Header";
+import StudentDataFetcher from "components/StudentDataFetcher";
+import Title from "components/Title";
+
+import { Box } from "@mui/material";
+
+import { app } from "app-styles";
 
 const App: FC = () => {
   return (
     <>
       <Header />
 
-      <div className="App">
-        <header className="App-header">
-          <Title />
-          <StudentDataFetcher />
-        </header>
-      </div>
+      <Box sx={app}>
+        <Title />
+        <StudentDataFetcher />
+      </Box>
     </>
   );
 };
